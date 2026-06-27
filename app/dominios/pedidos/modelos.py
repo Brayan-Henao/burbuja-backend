@@ -54,18 +54,15 @@ class Pedido(db.Model):
 
         return {
             "id": self.id,
-            "usuario_id": (
-                self.usuario_id
-            ),
+            "usuario_id": self.usuario_id,
             "total": self.total,
-            "direccion_envio": (
-                self.direccion_envio
-            ),
+            "direccion_envio": self.direccion_envio,
+            "estado": self.estado,
             "fecha_creacion": (
                 self.fecha_creacion.isoformat()
             ),
             "items": [
                 item.to_dict()
                 for item in self.items
-        ]
-        }
+    ]
+}

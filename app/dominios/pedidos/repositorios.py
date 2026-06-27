@@ -8,6 +8,11 @@ from app.dominios.pedidos.modelos import (
 class PedidoRepositorio:
 
     @staticmethod
+    def guardar():
+
+        db.session.commit()
+
+    @staticmethod
     def crear(pedido):
 
         db.session.add(pedido)

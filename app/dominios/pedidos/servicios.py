@@ -101,3 +101,20 @@ class PedidoServicio:
             pedido.to_dict()
             for pedido in pedidos
         ]
+    
+    @staticmethod
+    def obtener_pedido(pedido_id):
+
+        pedido = (
+            PedidoRepositorio.obtener_por_id(
+                pedido_id
+            )
+        )
+
+        if not pedido:
+
+            raise ValueError(
+                "Pedido no encontrado"
+            )
+
+        return pedido.to_dict()

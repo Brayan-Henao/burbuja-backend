@@ -61,3 +61,24 @@ def listar_mis_pedidos(usuario):
         "success": True,
         "data": pedidos
     }), 200
+
+@pedidos_bp.route(
+    "/<int:pedido_id>",
+    methods=["GET"]
+)
+@token_requerido
+def obtener_pedido(
+    usuario,
+    pedido_id
+):
+
+    pedido = (
+        PedidoServicio.obtener_pedido(
+            pedido_id
+        )
+    )
+
+    return jsonify({
+        "success": True,
+        "data": pedido
+    }), 200
